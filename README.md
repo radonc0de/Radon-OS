@@ -26,6 +26,13 @@ Using [this Udemy course](https://www.udemy.com/course/developing-a-multithreade
     - Linker file defines how file gets linked
     - Makefile uses the linker file to link the objects and generate the os binary
     - [ATA driver for reading from disk](https://wiki.osdev.org/ATA_read/write_sectors)
+    - Alignment issues need to be dealt with as putting assembly objects first in linker can cause issues
+- Running C code in protected mode
+    - C objects must be compiled and objects linked, then C functions can be ran from kernel assembly script
+- Hello world in C manually
+    - Must set video memory manually
+    - Each character is two bytes, the ASCII equivalent, then the color code.
+
 
 
 
