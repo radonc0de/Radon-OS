@@ -19,24 +19,22 @@ step2:
     mov sp, 0x7c00
     sti ; Enables Interrupts
 
-    mov ah, 2 ; READ SECTOR
-    mov al, 1 ; ONE SECTOR TO READ
-    mov ch, 0 ; Cylinder low eight bits
-    mov cl, 2 ; Read sector 2
-    mov dh, 0 ; Head number
-    mov bx, buffer
-    int 0x13
-    jc error
-
-    mov si, buffer
-    call print
-
     jmp $
 
-error:
-    mov si, error_message
-    call print
-    jmp $
+; GDT
+gdt_start:
+
+gdt_null:
+    dd 0x0
+    dd 0x0
+
+; offset 0x8
+gdt_code:       ; CS SHOULD POINT TO THIS
+    dw 0xffff   ; Segment limit first 0-15 bits
+    dw 0        ; Base first 0-15 bits
+    dw 0        ; Base 16-23 bits
+
+
 
 print: 
     mov bx, 0
@@ -54,10 +52,7 @@ print_char:
     int 0x10
     ret
 
-error_message: db 'Failed to load sector', 0
-
 times 510-($ - $$) db 0
 dw 0xAA55
 
-buffer:
 
