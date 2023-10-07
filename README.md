@@ -32,6 +32,8 @@ Using [this Udemy course](https://www.udemy.com/course/developing-a-multithreade
 - Hello world in C manually
     - Must set video memory manually
     - Each character is two bytes, the ASCII equivalent, then the color code.
+- [Creating Interrupt Descriptor Table](https://wiki.osdev.org/Interrupt_Descriptor_Table)
+	- 
 
 
 
