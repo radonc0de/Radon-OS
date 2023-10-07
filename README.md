@@ -15,6 +15,20 @@ Using [this Udemy course](https://www.udemy.com/course/developing-a-multithreade
     1. `lgdt` will load Global Descriptor Table
     2. Set protection enable bit in CR0 (control register 0)
     3. Jump to selector and offset of where to load
+- [Enable A20 Line](https://wiki.osdev.org/A20)
+    - Fast A20 gate can enable a20 line
+- [Creating a cross-compiler for `gcc`](https://wiki.osdev.org/GCC_Cross-Compiler)
+    1. Install necessary packages
+    2. Download `gcc` and `binutils` source code
+    3. Compile and install packages as cross-compiler
+- Extracting kernel code and loading into memory separately
+    - 32 bit code gets extracted to a separate kernel assembly file which gets linked to boot script
+    - Linker file defines how file gets linked
+    - Makefile uses the linker file to link the objects and generate the os binary
+    - [ATA driver for reading from disk](https://wiki.osdev.org/ATA_read/write_sectors)
+
+
+
 
 
 
