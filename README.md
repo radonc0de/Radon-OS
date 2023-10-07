@@ -12,7 +12,7 @@ Using [this Udemy course](https://www.udemy.com/course/developing-a-multithreade
     - Kernel runs in most priviledged ring, while programs run in least priviledged. Drivers can be ran in levels in between.
 - For 32-bit instructions, up to 4GB of memory are addressable
 - [Switching to protected mode](https://wiki.osdev.org/Protected_Mode)
-    1. `lgtdt` will load Global Descriptor Table
+    1. `lgdt` will load Global Descriptor Table
     2. Set protection enable bit in CR0 (control register 0)
     3. Jump to selector and offset of where to load
 
