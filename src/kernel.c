@@ -68,10 +68,22 @@ void print(const char* str)
 	}
 }
 
+void radon_os_print(){
+	const char* str = "Welcome to RadonOS!\n";
+	size_t len = strlen(str);
+	int color = 10;
+	for (int i = 0; i < len; i++)
+	{
+		terminal_writechar(str[i], color);
+		color++;
+		if (color == 15) color = 10;
+	}
+}
+
 void kernel_main()
 {
 	terminal_initialize();
-	print("Hello World!\nTest");
+	radon_os_print();
 
 	// Initialize interrupt descriptor table
 	idt_init();
