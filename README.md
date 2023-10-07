@@ -33,7 +33,9 @@ Using [this Udemy course](https://www.udemy.com/course/developing-a-multithreade
     - Must set video memory manually
     - Each character is two bytes, the ASCII equivalent, then the color code.
 - [Creating Interrupt Descriptor Table](https://wiki.osdev.org/Interrupt_Descriptor_Table)
-	- 
+	- Define interrupt descriptor table entries and register
+	- A function can then be used to set interrupts 
+	- Basic `memset` created to write decriptor table to memory 
 
 
 
