@@ -36,6 +36,13 @@ Using [this Udemy course](https://www.udemy.com/course/developing-a-multithreade
 	- Define interrupt descriptor table entries and register
 	- A function can then be used to set interrupts 
 	- Basic `memset` created to write decriptor table to memory 
+- Implementing IO functions
+	- Mapping C functions around assembly to allow for 1 or 2 byte input/output
+- Programmable Interrupt Controller
+	- Handles hardware interrupts, such as clock, keyboard inputs, disk input, etc
+	- PIC needs to be remapped to start at ISR 0x20, this is where it typically starts
+	- Main implementation thus far involves pushing general purpose registers to the stack using `pushad`, calling C code to handle the interrupt, writing out a 0x20 to 0x20 to acknolwedge the end of the interrupt handler, then using `popad` to restore general purpose registers and continue operation
+
 
 
 
