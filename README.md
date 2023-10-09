@@ -42,11 +42,14 @@ Using [this Udemy course](https://www.udemy.com/course/developing-a-multithreade
 	- Handles hardware interrupts, such as clock, keyboard inputs, disk input, etc
 	- PIC needs to be remapped to start at ISR 0x20, this is where it typically starts
 	- Main implementation thus far involves pushing general purpose registers to the stack using `pushad`, calling C code to handle the interrupt, writing out a 0x20 to 0x20 to acknolwedge the end of the interrupt handler, then using `popad` to restore general purpose registers and continue operation
-
-
-
-
-
-
-
-
+- Implementing the heap
+	- Basic heap implementation uses a memory block table to keep track of free and allocated blocks using bit flags
+	- While this design does make implementation simple, this does lead to fragmentation. Page tables should be able to help this though.
+	- The heap and its block table must be initialized in memory using `memset`.
+	- `kmalloc`:
+		- Find how many blocks are needed to fit the entire memory request.
+		- Iterate through the block table to find the first occurrance of the amount of free blocks needed that are continuous.
+		- Set the proper flags on these blocks and return the pointer.
+	- `kfree`: 
+		- Find which block index the pointer provided to free references.
+		- Starting at this index in the block table, mark blocks as free until a block does not have the HEAP_BLOCK_HAS_NEXT flag set.

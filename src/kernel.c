@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include "idt/idt.h"
+#include "memory/heap/kheap.h"
 #include "io/io.h"
 
 uint16_t* video_mem = 0;
@@ -84,6 +85,9 @@ void kernel_main()
 {
 	terminal_initialize();
 	radon_os_print();
+
+	// Intialize the heap
+	kheap_init();
 
 	// Initialize interrupt descriptor table
 	idt_init();
